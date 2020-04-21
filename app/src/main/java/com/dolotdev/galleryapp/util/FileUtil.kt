@@ -7,7 +7,8 @@ import java.util.*
 
 object FileUtil {
     
-    fun createImageFile(context: Context): File? {
+    fun createImageFile(context: Context?): File? {
+        if (context == null) return null
         val folder = File(context.filesDir, "photos")
         folder.mkdirs()
         return File(folder, generatePhotoFileName())
