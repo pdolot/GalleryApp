@@ -28,8 +28,10 @@ android {
 }
 
 def nav_version = "2.3.0-alpha05"
-def archLifecycleVersion = '2.2.0'
-def androidxArchVersion = '2.1.0'
+def arch_lifecycle_version = '2.2.0'
+def androidx_arch_version = '2.1.0'
+def glide_version = '4.11.0'
+def paging_version = "2.1.2"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -50,10 +52,17 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
     // Lifecycle components
-    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
-    kapt "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
-    androidTestImplementation "androidx.arch.core:core-testing:$androidxArchVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$arch_lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$arch_lifecycle_version"
+    androidTestImplementation "androidx.arch.core:core-testing:$androidx_arch_version"
 
     // ViewModel Kotlin support
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_lifecycle_version"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    // paging
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 }
