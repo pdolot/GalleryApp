@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dolotdev.galleryapp.R
 import com.dolotdev.galleryapp.constant.RequestCode
 import com.dolotdev.galleryapp.data.PhotoRepository
@@ -48,14 +49,14 @@ class Gallery : Fragment() {
 
         setAdapter()
 
-        viewModel.photoList.observe(viewLifecycleOwner, Observer {
-            adapter.setData(it)
+        viewModel.photos.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
         })
     }
 
     private fun setAdapter() {
         recyclerView.apply {
-            layoutManager = GridLayoutManager(context, 3)
+            layoutManager = LinearLayoutManager(context)
             adapter = this@Gallery.adapter
         }
     }

@@ -1,22 +1,17 @@
 package com.dolotdev.galleryapp.presentation.page
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dolotdev.galleryapp.R
+import com.dolotdev.galleryapp.data.model.Photo
 import kotlinx.android.synthetic.main.item_photo.view.*
 
-class PhotoAdapter : RecyclerView.Adapter<PhotoAdapter.VH>() {
-
-    private var items: List<Uri>? = null
-
-    fun setData(data: List<Uri>) {
-        this.items = data
-        notifyDataSetChanged()
-    }
+class PhotoAdapter : PagedListAdapter<Photo, PhotoAdapter.VH>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val view: View =
@@ -24,15 +19,26 @@ class PhotoAdapter : RecyclerView.Adapter<PhotoAdapter.VH>() {
         return VH(view)
     }
 
-    override fun getItemCount() = items?.size ?: 0
-
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val item = items?.get(position)
-
         holder.itemView.apply {
             Glide.with(context)
-                .load(item)
+                .load(getItem(position)?.uri)
                 .into(photo)
+        }
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object :
+            DiffUtil.ItemCallback<Photo>() {
+            override fun areItemsTheSame(
+                oldPhoto: Photo,
+                newPhoto: Photo
+            ) = oldPhoto === newPhoto
+
+            override fun areContentsTheSame(
+                oldPhoto: Photo,
+                newPhoto: Photo
+            ) = oldPhoto == newPhoto
         }
     }
 
