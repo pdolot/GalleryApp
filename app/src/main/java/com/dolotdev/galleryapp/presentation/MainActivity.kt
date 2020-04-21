@@ -1,7 +1,8 @@
-package com.dolotdev.galleryapp
+package com.dolotdev.galleryapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dolotdev.galleryapp.R
 
 class MainActivity : AppCompatActivity() {
 
