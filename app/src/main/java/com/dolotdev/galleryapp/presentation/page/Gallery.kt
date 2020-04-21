@@ -3,22 +3,24 @@ package com.dolotdev.galleryapp.presentation.page
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.dolotdev.galleryapp.R
 import com.dolotdev.galleryapp.constant.RequestCode
+import com.dolotdev.galleryapp.data.PhotoRepository
 import com.dolotdev.galleryapp.functional.PhotoService
 import kotlinx.android.synthetic.main.fragment_gallery.*
 
 class Gallery : Fragment() {
 
     private val viewModel by lazy { GalleryViewModel() }
+    private val adapter by lazy { PhotoAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +33,31 @@ class Gallery : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.photoService = PhotoService(this)
+        viewModel.photoRepository = PhotoRepository(context)
+
+        takePicture.setOnClickListener {
+            if (isCameraPermissionGranted()) {
+                viewModel.photoService?.startCameraIntent()
+            } else {
+                requestPermissions(
+                    arrayOf(Manifest.permission.CAMERA),
+                    RequestCode.CAMERA_REQUEST_CODE
+                )
+            }
+        }
+
+        setAdapter()
+
+        viewModel.photoList.observe(viewLifecycleOwner, Observer {
+            adapter.setData(it)
+        })
+    }
+
+    private fun setAdapter() {
+        recyclerView.apply {
+            layoutManager = GridLayoutManager(context, 3)
+            adapter = this@Gallery.adapter
+        }
     }
 
 

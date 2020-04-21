@@ -22,6 +22,7 @@ class PhotoService(private val owner: Fragment) {
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
                 takePictureIntent.resolveActivity(context.packageManager)?.also {
                     createImageFile(context)?.also { file ->
+
                         photoUri = FileProvider.getUriForFile(
                             context,
                             Constant.FILE_PROVIDER_AUTH,
@@ -29,6 +30,7 @@ class PhotoService(private val owner: Fragment) {
                         )
 
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
+
                         owner.startActivityForResult(
                             takePictureIntent,
                             RequestCode.CAMERA_REQUEST_CODE
