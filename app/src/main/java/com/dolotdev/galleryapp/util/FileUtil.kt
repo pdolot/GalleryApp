@@ -16,6 +16,6 @@ object FileUtil {
 
     private fun generatePhotoFileName(): String {
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        return "IMAGE_$timeStamp.jpg"
+        return "IMG_$timeStamp.jpg"
     }
 }

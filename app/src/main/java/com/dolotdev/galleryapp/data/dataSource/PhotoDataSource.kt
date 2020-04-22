@@ -10,12 +10,12 @@ class PhotoDataSource(photoRepository: PhotoRepository) :
     private val photos = photoRepository.fetchPhotos()
 
     private fun loadInternal(key: Long?, loadSize: Int): List<Photo> {
-        return if (key == null) {
+        return  if (key == null) {
             photos.take(loadSize)
         } else {
             photos.filter {
                 it.lastModified < key
-            }
+            }.take(loadSize)
         }
     }
 

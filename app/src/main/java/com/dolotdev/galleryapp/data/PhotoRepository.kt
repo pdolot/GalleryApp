@@ -18,11 +18,13 @@ class PhotoRepository(private val context: Context?) {
                 it.lastModified()
             }?.map {
                 Photo(
-                    FileProvider.getUriForFile(
+                    uri = FileProvider.getUriForFile(
                         context,
                         Constant.FILE_PROVIDER_AUTH,
                         it
-                    ), it.name, it.lastModified()
+                    ),
+                    name = it.name,
+                    lastModified = it.lastModified()
                 )
             } ?: emptyList()
         } else {
