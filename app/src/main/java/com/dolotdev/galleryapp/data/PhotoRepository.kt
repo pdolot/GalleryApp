@@ -1,7 +1,6 @@
 package com.dolotdev.galleryapp.data
 
 import android.content.Context
-import android.net.Uri
 import androidx.core.content.FileProvider
 import com.dolotdev.galleryapp.constant.Constant
 import com.dolotdev.galleryapp.data.model.Photo
@@ -18,11 +17,13 @@ class PhotoRepository(private val context: Context?) {
                 it.lastModified()
             }?.map {
                 Photo(
-                    FileProvider.getUriForFile(
+                    uri = FileProvider.getUriForFile(
                         context,
                         Constant.FILE_PROVIDER_AUTH,
                         it
-                    ), it.name, it.lastModified()
+                    ),
+                    name = it.name,
+                    lastModified = it.lastModified()
                 )
             } ?: emptyList()
         } else {

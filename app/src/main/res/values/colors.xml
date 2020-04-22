@@ -3,4 +3,10 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="charade">#21242d</color>
+    <color name="brightGray">#363b4a</color>
+    <color name="shark">#181b22</color>
+    <color name="ghost">#CCCED6</color>
+    <color name="porcelain">#ECEDEE</color>
 </resources>

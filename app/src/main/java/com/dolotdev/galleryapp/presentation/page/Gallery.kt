@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dolotdev.galleryapp.R
 import com.dolotdev.galleryapp.constant.RequestCode
@@ -50,6 +49,7 @@ class Gallery : Fragment() {
         setAdapter()
 
         viewModel.photos.observe(viewLifecycleOwner, Observer {
+            emptyData.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
             adapter.submitList(it)
         })
     }

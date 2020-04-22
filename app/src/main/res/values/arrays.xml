@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="rounded3dGradientColors">
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#4E5465</item>
+        <item>#101217</item>
+        <item>#101217</item>
+        <item>#101217</item>
+        <item>#101217</item>
+        <item>#101217</item>
+        <item>#101217</item>
+        <item>#101217</item>
+        <item>#101217</item>
+    </array>
+</resources>
