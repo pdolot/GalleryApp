@@ -49,6 +49,7 @@ class Gallery : Fragment() {
         setAdapter()
 
         viewModel.photos.observe(viewLifecycleOwner, Observer {
+            emptyData.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
             adapter.submitList(it)
         })
     }

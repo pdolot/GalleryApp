@@ -19,11 +19,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_photo" />
 
+    <TextView
+        android:id="@+id/emptyData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_padding"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="@string/empty_photo_list"
+        android:textAlignment="center"
+        android:textColor="@color/porcelain"
+        android:textSize="@dimen/medium_text_size"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <ImageView
         android:id="@+id/takePicture"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_padding"
         android:adjustViewBounds="true"
         android:src="@drawable/btn_add_image"
         app:layout_constraintBottom_toBottomOf="parent"

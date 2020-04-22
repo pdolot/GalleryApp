@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:radius="16dp"
+        app:radius="@dimen/corner_radius"
         app:roundedCorners="all"
         app:shadowRadius="8dp" />
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/xsmall_padding"
         android:ellipsize="end"
         android:fontFamily="@font/quicksand_medium"
         android:maxLines="1"
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/xsmall_padding"
         android:layout_marginEnd="12dp"
         android:ellipsize="end"
         android:fontFamily="@font/quicksand_regular"
