@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="backgroundColor" format="color" />
+    <attr name="gradientColors" format="reference" />
+    <attr name="radius" format="dimension" />
+    <attr name="shadowRadius" format="dimension" />
+    <attr name="roundedCorners" format="flags">
+        <flag name="topLeft" value="1" />
+        <flag name="topRight" value="2" />
+        <flag name="bottomRight" value="4" />
+        <flag name="bottomLeft" value="8" />
+        <flag name="all" value="15" />
+    </attr>
+
+    <declare-styleable name="RoundedView3D">
+        <attr name="backgroundColor" />
+        <attr name="gradientColors"/>
+        <attr name="radius"/>
+        <attr name="shadowRadius" />
+        <attr name="roundedCorners"/>
+        <attr name="embossing" format="enum">
+            <enum name="concave" value="0"/>
+            <enum name="convex" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
+</resources>
