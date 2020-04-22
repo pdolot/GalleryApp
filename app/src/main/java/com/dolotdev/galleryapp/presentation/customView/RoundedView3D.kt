@@ -150,7 +150,7 @@ class RoundedView3D @JvmOverloads constructor(
                 offset = shadowRadius * 1.5f
             }
             0 -> {
-                shadowOffset = shadowRadius * 1.25f
+                shadowOffset = shadowRadius * 1.5f
                 offset = shadowRadius * 2f
             }
         }
@@ -214,7 +214,6 @@ class RoundedView3D @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val path = Path()
-
         val shadowPath = Path()
 
         when (embossing) {
@@ -254,7 +253,9 @@ class RoundedView3D @JvmOverloads constructor(
                 canvas.drawPath(path, Paint().apply {
                     isAntiAlias = true
                     style = Paint.Style.FILL
-                    color = (this@RoundedView3D.background as ColorDrawable).color
+                    if (this@RoundedView3D.background is ColorDrawable) {
+                        color = (this@RoundedView3D.background as ColorDrawable).color
+                    }
                 })
             }
         }

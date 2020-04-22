@@ -1,7 +1,6 @@
 package com.dolotdev.galleryapp.data
 
 import android.content.Context
-import android.net.Uri
 import androidx.core.content.FileProvider
 import com.dolotdev.galleryapp.constant.Constant
 import com.dolotdev.galleryapp.data.model.Photo
